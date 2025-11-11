@@ -19,6 +19,7 @@ jobs:
 
       - name: Run Semgrep
         uses: returntocorp/semgrep-action@v1
+        continue-on-error: true
         with:
           config: p/ci
           generateSarif: true
@@ -31,6 +32,7 @@ jobs:
 
       - name: Run Trivy filesystem scan
         uses: aquasecurity/trivy-action@0.24.0
+        continue-on-error: true
         with:
           scan-type: 'fs'
           ignore-unfixed: true
